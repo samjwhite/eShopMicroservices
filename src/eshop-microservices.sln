@@ -1,10 +1,39 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F1AA4F40-F182-46ED-B8E3-692FC978E1F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{EAF1BF20-9000-411F-9079-672BB1B1EF68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{71359442-D926-48A8-AB41-355884A69618}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{2E80D3B6-C868-4ED3-B755-763A09CFFC8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj", "{9F76FB16-E40D-4282-80E0-D353F1E04A75}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71359442-D926-48A8-AB41-355884A69618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71359442-D926-48A8-AB41-355884A69618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71359442-D926-48A8-AB41-355884A69618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71359442-D926-48A8-AB41-355884A69618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F76FB16-E40D-4282-80E0-D353F1E04A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F76FB16-E40D-4282-80E0-D353F1E04A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F76FB16-E40D-4282-80E0-D353F1E04A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F76FB16-E40D-4282-80E0-D353F1E04A75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EAF1BF20-9000-411F-9079-672BB1B1EF68} = {F1AA4F40-F182-46ED-B8E3-692FC978E1F9}
+		{71359442-D926-48A8-AB41-355884A69618} = {EAF1BF20-9000-411F-9079-672BB1B1EF68}
+		{9F76FB16-E40D-4282-80E0-D353F1E04A75} = {2E80D3B6-C868-4ED3-B755-763A09CFFC8F}
 	EndGlobalSection
 EndGlobal
