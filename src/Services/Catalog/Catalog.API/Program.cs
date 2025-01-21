@@ -1,6 +1,8 @@
 //Vertical Slice Architecture
 
 using BuildingBlocks.Behaviors;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +29,32 @@ var app = builder.Build();
 app.MapCarter();
 
 //Configure global exception handling
-app.UseExceptionHandler();
+app.UseExceptionHandler(exceptionHandlerApp =>
+{
+    exceptionHandlerApp.Run(async context =>
+    {
+        var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
+        if (exception == null)
+        {
+            return;
+        }
+
+        var problemDetails = new ProblemDetails
+        {
+            Title = exception.Message,
+            Status = 500,
+            Detail = exception.StackTrace
+        };
+
+        var logger = context.RequestServices.GetRequiredService<ILogger<Program>>();
+        logger.LogError(exception, exception.Message);
+
+        context.Response.StatusCode = 500;
+        context.Response.ContentType = "application/problem+json";
+
+        await context.Response.WriteAsJsonAsync(problemDetails);
+    });
+});
 
 
 app.Run();
